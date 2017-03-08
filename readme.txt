@@ -33,7 +33,7 @@
  [jiushi@mygit]$git reset 2.py			
  Unstaged changes after reset:
  M	2.py			
- [jiushi@mygit]$cat 2.py				//M is no` color	
+ [jiushi@mygit]$cat 2.py				//M is no color	
  print '2.py'
  print '2.1.py'
  [jiushi@mygit]$git status -s			
@@ -69,4 +69,65 @@
  ce09a22 change2
  9528d99 o
  3b75d59 change 1
+
+
+ //checkout
+[jiushi@mygit]$git log --oneline
+4216ccf change2
+9528d99 o
+3b75d59 change 1
+[jiushi@mygit]$git checkout 9528d99 -- readme.txt	//Only readme.txt is back to 9528d99 
+
+//branch
+[jiushi@mygit]$git log --oneline --graph
+* 4216ccf change2
+* 9528d99 o
+* 3b75d59 change 1
+[jiushi@mygit]$git branch dev						//Create a branch
+[jiushi@mygit]$git branch							//Display branch
+  dev
+  * master
+[jiushi@mygit]$git checkout dev						//goto dev branc
+Switched to branch 'dev'
+[jiushi@mygit]$git branch							//already in dev branch
+* dev
+  master
+[jiushi@mygit]$git branch -d dev					//failed
+error: Cannot delete the branch 'dev' which you are currently on.
+
+[jiushi@mygit]$git checkout master					//goto master 
+Switched to branch 'master'
+[jiushi@mygit]$git branch -d dev					//delete dev branch
+Deleted branch dev (was 4216ccf).
+
+
+[jiushi@mygit]$git checkout -b dev					//Create a dev and goto dev branch
+[jiushi@mygit]$git branch
+* dev
+  master
+
+[jiushi@mygit]$git commit -am "change 3 in dev"		//equal to add ,then commit -m.this command
+													//only can use in exist file in git,not to new file
+[dev c5a87f1] change 3 in dev
+ 2 files changed, 9 insertions(+), 1 deletion(-)
+[jiushi@mygit]$git log --oneline --graph
+* c5a87f1 change 3 in dev
+* 4216ccf change2
+* 9528d99 o
+* 3b75d59 change 1
+
+//merge
+[jiushi@mygit]$git checkout master					//back to master
+Switched to branch 'master'
+[jiushi@mygit]$git merge -m "keep merge info" dev	//default message
+Updating 4216ccf..832e7df
+Fast-forward (no commit created; -m option ignored)
+ 2.py       |  1 +
+ readme.txt | 48 ++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 48 insertions(+), 1 deletion(-)
+[jiushi@mygit]$git log --oneline --graph			//no message
+* 832e7df change 3 in dev
+* 4216ccf change2
+* 9528d99 o
+* 3b75d59 change 1
 
