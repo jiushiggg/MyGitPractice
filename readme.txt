@@ -116,3 +116,18 @@ Deleted branch dev (was 4216ccf).
 * 9528d99 o
 * 3b75d59 change 1
 
+//merge
+[jiushi@mygit]$git checkout master					//back to master
+Switched to branch 'master'
+[jiushi@mygit]$git merge -m "keep merge info" dev	//default message
+Updating 4216ccf..832e7df
+Fast-forward (no commit created; -m option ignored)
+ 2.py       |  1 +
+ readme.txt | 48 ++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 48 insertions(+), 1 deletion(-)
+[jiushi@mygit]$git log --oneline --graph			//no message
+* 832e7df change 3 in dev
+* 4216ccf change2
+* 9528d99 o
+* 3b75d59 change 1
+
