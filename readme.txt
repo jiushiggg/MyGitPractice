@@ -130,4 +130,41 @@ Fast-forward (no commit created; -m option ignored)
 * 4216ccf change2
 * 9528d99 o
 * 3b75d59 change 1
+[jiushi@mygit]$git branch
+  dev
+* master
+
+//I make conflict
+[jiushi@mygit]$git checkout dev
+Switched to branch 'dev'
+[jiushi@mygit]$git commit -am "add merge" --amend 
+[dev 5319740] add merge
+2 files changed, 63 insertions(+), 1 deletion(-)
+[jiushi@mygit]$git log --oneline
+5319740 add merge
+4216ccf change2
+9528d99 o
+3b75d59 change 1
+
+
+
+
+//merge conflict
+[jiushi@mygit]$git merge --no-ff -m "keep merge info" dev	//no fast forward
+Auto-merging readme.txt
+CONFLICT (content): Merge conflict in readme.txt
+Automatic merge failed; fix conflicts and then commit the result.
+[jiushi@mygit]$git commit -am "solve conflict"
+[master 785ebc6] solve conflict
+[jiushi@mygit]$git log --oneline --graph
+*   785ebc6 solve conflict
+|\  
+| * 5319740 add merge
+* | 832e7df change 3 in dev
+|/  
+* 4216ccf change2
+* 9528d99 o
+* 3b75d59 change 1
+
+
 
