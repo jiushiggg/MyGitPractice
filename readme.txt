@@ -5,7 +5,7 @@
  1910  git config user.name
  1911  git config user.email
  1912  git init							//this directory is initiated  as a repository
- 1913  ll								//this commit will display a .git directory
+ 1913  ll								//this command will show  .git directory
  1914  touch test.py					//create a file
  1916  git status						//display file status 
  1917  git add test.py					//add a file in git 
@@ -99,8 +99,6 @@ error: Cannot delete the branch 'dev' which you are currently on.
 Switched to branch 'master'
 [jiushi@mygit]$git branch -d dev					//delete dev branch
 Deleted branch dev (was 4216ccf).
-
-
 [jiushi@mygit]$git checkout -b dev					//Create a dev and goto dev branch
 [jiushi@mygit]$git branch
 * dev
@@ -167,4 +165,33 @@ Automatic merge failed; fix conflicts and then commit the result.
 * 3b75d59 change 1
 
 
+//stash
+[jiushi@mygit]$vi 2.py				//add "print 'stash"
+[jiushi@mygit]$cat 2.py
+print '2.py'
+print '2.1.py'
+print '2.branch.py'
+print 'stash'
+[jiushi@mygit]$git log --oneline
+6ff6229 add merge
+785ebc6 solve conflict
+5319740 add merge
+832e7df change 3 in dev
+4216ccf change2
+9528d99 o
+3b75d59 change 1
+
+[jiushi@mygit]$git stash
+Saved working directory and index state WIP on master: 6ff6229 add merge
+HEAD is now at 6ff6229 add merge
+ushi@mygit]$cat 2.py
+print '2.py'
+print '2.1.py'
+print '2.branch.py'
+[jiushi@mygit]$git stash pop
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+	modified:   2.py
 
