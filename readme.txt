@@ -195,3 +195,13 @@ Changes not staged for commit:
   (use "git checkout -- <file>..." to discard changes in working directory)
 	modified:   2.py
 
+//github
+[jiushi@mygit]$git remote add origin https://github.com/longfeigao/test1.git
+fatal: remote origin already exists.
+[jiushi@mygit]$git remote rm origin
+[jiushi@mygit]$git remote add origin https://github.com/longfeigao/test1.git
+[jiushi@mygit]$git push -u origin master
+Username for 'https://github.com': longfeigao
+Password for 'https://longfeigao@github.com': 
+
+
